@@ -132,26 +132,38 @@ async function QuickSort(l, r, delay = 100) {
         await QuickSort(pivot_idx + 1, r);
     }
 }
+// var x = 1;
+// while (x==1) {
+    var sortCall = 0;
+    function QuickSortButton() {
+        sortCall = sortCall + 1;
+        var generatorButton = document.getElementById('generator')
+        generatorButton.style.visibility = 'none';
+        var tag = document.getElementById('header')
+        tag.innerText = "Applying Quick Sorting to the generated array "
 
+        // Calling QuickSort function
+        if (sortCall == 1) {
+            QuickSort(0, 19);
+        } else {
+            alert('You can not apply quick sort twice on same array ')
+        }
 
-function QuickSortButton() {
-    var generatorButton = document.getElementById('generator')
-    generatorButton.style.visibility = 'none';
-    var tag = document.getElementById('header')
-    tag.innerText = "Applying Quick Sorting to the generated array "
-    
-    // Calling QuickSort function
-    QuickSort(0, 19);
+    }
+    var count = 0;
+    function generate_array() {
+        // Calling generatearray function
+        count = count + 1;
+        if (count == 1) {
+            generatearray();
+        } else {
+            alert("You can not create new array because an is already created!")
+        }
+    }
 
+    // // Calling generate_idx function
+    generate_idx();
 
-}
-function generate_array() {
-    // Calling generatearray function
-    generatearray();
-}
-
-// // Calling generate_idx function
-generate_idx();
-
-// // Calling QuickSort function
-// QuickSort(0, 19);
+    // // Calling QuickSort function
+    // QuickSort(0, 19);
+    x = 0;
