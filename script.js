@@ -157,7 +157,7 @@ async function QuickSort(l, r, delay = 100) {
         if (count == 1) {
             generatearray();
         } else {
-            alert("You can not create new array because an is already created!")
+            alert("You can not create new array because an array is already created!")
         }
     }
 
