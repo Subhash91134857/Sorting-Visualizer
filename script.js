@@ -121,6 +121,7 @@ async function hoare_partition(l, r, delay = 700) {
 }
 
 // Asynchronous QuickSort function
+
 async function QuickSort(l, r, delay = 100) {
     // QuickSort Algorithm
     if (l < r) {
@@ -131,39 +132,51 @@ async function QuickSort(l, r, delay = 100) {
         //Recursively calling quicksort for right partition
         await QuickSort(pivot_idx + 1, r);
     }
+    
 }
 // var x = 1;
 // while (x==1) {
-    var sortCall = 0;
-    function QuickSortButton() {
-        sortCall = sortCall + 1;
-        var generatorButton = document.getElementById('generator')
-        generatorButton.style.visibility = 'none';
-        var tag = document.getElementById('header')
-        tag.innerText = "Applying Quick Sorting to the generated array "
+var sortCall = 0;
+function QuickSortButton() {
+    sortCall = sortCall + 1;
+    var generatorButton = document.getElementById('generator')
+    generatorButton.style.visibility = 'none';
 
-        // Calling QuickSort function
-        if (sortCall == 1) {
+
+    // Calling QuickSort function
+    if (sortCall == 1) {
+        if (generateCount > 0) {
+            var tag = document.getElementById('header')
+            tag.innerText = "Applying Quick Sorting to the generated array "
             QuickSort(0, 19);
         } else {
-            alert('You can not apply quick sort twice on same array ')
+            alert('You have not created any array!')
         }
-
-    }
-    var count = 0;
-    function generate_array() {
-        // Calling generatearray function
-        count = count + 1;
-        if (count == 1) {
-            generatearray();
-        } else {
-            alert("You can not create new array because an array is already created!")
-        }
+    } else {
+        alert('You can not apply quick sort twice on same array ')
     }
 
-    // // Calling generate_idx function
-    generate_idx();
+}
+var count = 0;
+var generateCount = 0;
+function generate_array() {
+    // Calling generatearray function
+    count = count + 1;
+    if (count == 1) {
+        generateCount = generateCount + 1;
+        generatearray();
 
-    // // Calling QuickSort function
-    // QuickSort(0, 19);
-    x = 0;
+    } else {
+        alert("You can not create new array because an array is already created!")
+    }
+}
+
+// // Calling generate_idx function
+generate_idx();
+
+// // Calling QuickSort function
+// QuickSort(0, 19);
+// const refreshPage = () => {
+//     location.replace(self.location.href)
+// }
+console.log(countForRefersh);
